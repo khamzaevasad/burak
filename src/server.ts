@@ -1,6 +1,2 @@
-console.log("EXUCUTED");
-
-import moment from "moment";
-
-const currentTIme = moment().format("YYYYMM-DD");
-console.log(currentTIme);
+import dotenv from "dotenv";
+dotenv.config();
