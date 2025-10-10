@@ -8,8 +8,21 @@ Ushbu function bizga arrayning tarkibidagi birinchi eng katta qiymatning indeksi
 MASALAN: getHighestIndex([5, 21, 12, 21 ,8]); return qiladi 1 sonini
  **/
 
-function getHighestIndex(list: number[]): number {
-  return list.indexOf(Math.max(...list));
-}
+// function getHighestIndex(list: number[]): number {
+//   return list.indexOf(Math.max(...list));
+// }
 
-console.log(getHighestIndex([5, 21, 12, 21, 8]));
+// console.log(getHighestIndex([5, 21, 12, 21, 8]));
+
+/** 
+ * H-TASK: 
+
+shunday function tuzing, u integerlardan iborat arrayni argument sifatida qabul qilib, faqat positive qiymatlarni olib string holatda return qilsin
+MASALAN: getPositive([1, -4, 2]) return qiladi "12"
+
+ **/
+
+function getPositive(list: number[]): string {
+  return list.filter((num) => num > 0).join("");
+}
+console.log(getPositive([1, -4, 2]));
