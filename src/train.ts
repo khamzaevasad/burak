@@ -22,7 +22,23 @@ MASALAN: getPositive([1, -4, 2]) return qiladi "12"
 
  **/
 
-function getPositive(list: number[]): string {
-  return list.filter((num) => num > 0).join("");
+// function getPositive(list: number[]): string {
+//   return list.filter((num) => num > 0).join("");
+// }
+// console.log(getPositive([1, -4, 2]));
+
+/*
+H2-TASK: 
+
+Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+MASALAN: getDigits("m14i1t") return qiladi "141" 
+
+**/
+
+function getDigits(list: string): string {
+  return list
+    .split("")
+    .filter((item) => item >= "0" && item <= "9")
+    .join("");
 }
-console.log(getPositive([1, -4, 2]));
+console.log(getDigits("m194i1t"));
