@@ -1,3 +1,15 @@
+/*
+ Project standarts
+    -Loging standarts
+    -Naming standarts
+        function, method, variables => CAMEL
+        class => PASKAL
+        folder => KEBAB
+        css => SNAKE
+    -Error handling
+    
+ */
+
 /** 
  * TASK G:
 
