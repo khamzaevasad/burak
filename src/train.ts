@@ -47,10 +47,49 @@ MASALAN: getDigits("m14i1t") return qiladi "141"
 
 **/
 
-function getDigits(list: string): string {
-  return list
-    .split("")
-    .filter((item) => item >= "0" && item <= "9")
-    .join("");
+// function getDigits(list: string): string {
+//   return list
+//     .split("")
+//     .filter((item) => item >= "0" && item <= "9")
+//     .join("");
+// }
+// console.log(getDigits("m194i1t"));
+
+/*
+
+I-TASK:
+
+Shunday function yozing, u parametridagi array ichida eng kop takrorlangan raqamni topib qaytarsin.
+MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
+
+**/
+
+// function majorityElement(numberList: number[]) {
+//   const counts: Record<number, number> = {};
+//   let maxCount = 0;
+//   let maxNumber = 0;
+//   numberList.forEach((number, i) => {
+//     if (!counts[number]) {
+//       counts[number] = 1;
+//     } else {
+//       counts[number] += 1;
+//     }
+//   });
+//   for (const key in counts) {
+//     const value = counts[key];
+//     if (value > maxCount) {
+//       maxCount = value;
+//       maxNumber = Number(key);
+//     }
+//   }
+//   return maxNumber;
+// }
+
+// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4]));
+
+function majorityElement(numberList: number[]): number {
+  numberList.sort((a, b) => a - b);
+  return numberList[Math.floor(numberList.length / 2)];
 }
-console.log(getDigits("m194i1t"));
+
+console.log(majorityElement([1, 2, 3, 3, 5, 4, 2, 4]));
