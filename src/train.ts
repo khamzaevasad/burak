@@ -87,9 +87,21 @@ MASALAN: majorityElement([1,2,3,4,5,4,3,4]) return 4
 
 // console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4]));
 
-function majorityElement(numberList: number[]): number {
-  numberList.sort((a, b) => a - b);
-  return numberList[Math.floor(numberList.length / 2)];
-}
+// function majorityElement(numberList: number[]): number {
+//   numberList.sort((a, b) => a - b);
+//   return numberList[Math.floor(numberList.length / 2)];
+// }
 
-console.log(majorityElement([1, 2, 3, 3, 5, 4, 2, 4]));
+// console.log(majorityElement([1, 2, 3, 3, 5, 4, 2, 4]));
+
+/**
+ J-TASK: 
+
+Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
+MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
+ */
+
+function findLongestWord(str: string): string {
+  return str.split(" ").sort((a, b) => b.length - a.length)[0];
+}
+console.log(findLongestWord("I come from Uzbekistan"));
