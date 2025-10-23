@@ -10,7 +10,7 @@ router
 router
   .get("/signup", restaurantController.getSignup)
   .post("/signup", restaurantController.processSignup);
-
+router.get("/logout", restaurantController.logout);
 router.get("/check-me", restaurantController.checkAuthSession);
 
 /** Product */
