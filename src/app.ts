@@ -4,8 +4,10 @@ import router from "./router";
 import routerAdmin from "./router-Admin";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/config";
+
 import session from "express-session";
 import ConnectMongoDBSession from "connect-mongodb-session";
+import { T } from "./libs/types/common";
 
 const MongodbStore = ConnectMongoDBSession(session);
 const store = new MongodbStore({
@@ -32,6 +34,12 @@ app.use(
     saveUninitialized: true,
   })
 );
+
+app.use(function (req, res, next) {
+  const sessionIntstance = req.session as T;
+  res.locals.member = sessionIntstance.member;
+  next();
+});
 
 /** 3-Views **/
 app.set("views", path.join(__dirname, "views"));
