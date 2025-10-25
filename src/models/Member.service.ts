@@ -53,7 +53,7 @@ class MemberService {
   public async processSignup(input: MemberInput): Promise<Member> {
     const exist = await this.memberModel
       .findOne({
-        MemberType: MemberType.RESTAURANT,
+        memberType: MemberType.RESTAURANT,
       })
       .exec();
 

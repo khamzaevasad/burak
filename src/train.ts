@@ -112,10 +112,26 @@ Shunday function yozing, u string qabul qilsin va string ichidagi unli harflar s
 MASALAN: countVowels("string") return 1;
  */
 
-function countVowels(str: string) {
-  const list: string = "aeiou";
-  return str.split("").filter((char) => list.includes(char.toLowerCase()))
-    .length;
+// function countVowels(str: string) {
+//   const list: string = "aeiou";
+//   return str.split("").filter((char) => list.includes(char.toLowerCase()))
+//     .length;
+// }
+
+// console.log(countVowels("Assalomu alaykum Sherxon aka yaxshimisiz😁"));
+
+/**
+ L-TASK: 
+
+Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
+ */
+
+function reverseSentence(str: string) {
+  return str
+    .split(" ")
+    .map((word) => word.split("").reverse().join(""))
+    .join(" ");
 }
 
-console.log(countVowels("Assalomu alaykum Sherxon aka yaxshimisiz😁"));
+console.log(reverseSentence("we like coding"));
