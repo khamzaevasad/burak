@@ -127,11 +127,32 @@ Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni
 MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
  */
 
-function reverseSentence(str: string) {
-  return str
-    .split(" ")
-    .map((word) => word.split("").reverse().join(""))
-    .join(" ");
+// function reverseSentence(str: string) {
+//   return str
+//     .split(" ")
+//     .map((word) => word.split("").reverse().join(""))
+//     .join(" ");
+// }
+
+// console.log(reverseSentence("we like coding"));
+
+/*
+M-TASK: 
+
+Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
+MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
+*/
+
+type NumSquare = {
+  number: number;
+  square: number;
+};
+
+function getSquareNumbers(numberList: number[]): NumSquare[] {
+  const result = numberList.map((num) => {
+    return { number: num, square: num ** 2 };
+  });
+  return result;
 }
 
-console.log(reverseSentence("we like coding"));
+console.log(getSquareNumbers([1, 2, 3]));
