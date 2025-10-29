@@ -8,13 +8,16 @@ import { AdminRequest } from "../libs/types/member";
 const productService = new ProductService();
 const productController: T = {};
 
-// spa
+// SPA
 
-// ssr
+// BSSR
+
+// getAllProducts
 productController.getAllProducts = async (req: Request, res: Response) => {
   try {
     console.log("getAllProducts");
-    res.render("products");
+    const data = await productService.getAllProducts();
+    res.render("products", { products: data });
   } catch (err) {
     console.log("ERROR getAllProducts", err);
     if (err instanceof Errors) res.status(err.code).json(err);
@@ -22,6 +25,7 @@ productController.getAllProducts = async (req: Request, res: Response) => {
   }
 };
 
+// createNewProduct
 productController.createNewProduct = async (
   req: AdminRequest,
   res: Response
@@ -48,6 +52,7 @@ productController.createNewProduct = async (
   }
 };
 
+// updateChosenProduct
 productController.updateChosenProduct = async (req: Request, res: Response) => {
   try {
     console.log("updateChosenProduct");
