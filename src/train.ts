@@ -143,16 +143,28 @@ Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va arra
 MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
 */
 
-type NumSquare = {
-  number: number;
-  square: number;
-};
+// type NumSquare = {
+//   number: number;
+//   square: number;
+// };
 
-function getSquareNumbers(numberList: number[]): NumSquare[] {
-  const result = numberList.map((num) => {
-    return { number: num, square: num ** 2 };
-  });
-  return result;
+// function getSquareNumbers(numberList: number[]): NumSquare[] {
+//   const result = numberList.map((num) => {
+//     return { number: num, square: num ** 2 };
+//   });
+//   return result;
+// }
+
+// console.log(getSquareNumbers([1, 2, 3]));
+
+/**
+ N-TASK: 
+
+Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
+MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+ */
+
+function palindromCheck(input: string): boolean {
+  return input.split("").reverse().join("") === input;
 }
-
-console.log(getSquareNumbers([1, 2, 3]));
+console.log(palindromCheck("dad"));
