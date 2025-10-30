@@ -10,7 +10,7 @@ const productController: T = {};
 
 // SPA
 
-// BSSR
+// SSR
 
 // getAllProducts
 productController.getAllProducts = async (req: Request, res: Response) => {
@@ -40,7 +40,7 @@ productController.createNewProduct = async (
     console.log("data", data);
     await productService.createNewProduct(data);
     res.send(
-      `<script> alert("Succesful creation!"); window.location.replace('admin/product/all) </script>`
+      `<script> alert("Successful creation!"); window.location.replace('admin/product/all) </script>`
     );
   } catch (err) {
     console.log("ERROR createNewProduct", err);

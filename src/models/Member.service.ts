@@ -48,7 +48,7 @@ class MemberService {
     return await this.memberModel.findById(member._id).lean().exec();
   }
 
-  /** BSSR **/
+  /** SSR **/
 
   public async processSignup(input: MemberInput): Promise<Member> {
     const exist = await this.memberModel
@@ -90,6 +90,15 @@ class MemberService {
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
 
     return await this.memberModel.findById(member._id).exec();
+  }
+
+  public async getUser(): Promise<Member[]> {
+    const result = await this.memberModel
+      .find({ memberType: MemberType.USER })
+      .exec();
+
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    return result;
   }
 }
 
