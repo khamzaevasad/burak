@@ -10,7 +10,7 @@ class ProductService {
   constructor() {
     this.productModel = ProductModel;
   }
-  // bssr
+  // ssr
 
   // getAllProducts
   public getAllProducts = async (): Promise<Product[]> => {
@@ -18,7 +18,7 @@ class ProductService {
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
     return result;
   };
-
+  // createNewProduct
   public async createNewProduct(input: ProductInput): Promise<Product> {
     try {
       return await this.productModel.create(input);
@@ -27,7 +27,7 @@ class ProductService {
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
   }
-
+  // updateChosenProduct
   public updateChosenProduct = async (
     id: string,
     input: ProductUpdateInput

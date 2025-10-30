@@ -55,7 +55,7 @@ class MemberService {
   }
 
   /** SSR **/
-
+  // processSignup
   public async processSignup(input: MemberInput): Promise<Member> {
     const exist = await this.memberModel
       .findOne({
@@ -76,7 +76,7 @@ class MemberService {
       throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
     }
   }
-
+  // processLogin
   public async processLogin(input: LoginInput): Promise<Member> {
     const member = await this.memberModel
       .findOne(
@@ -97,7 +97,7 @@ class MemberService {
 
     return await this.memberModel.findById(member._id).exec();
   }
-
+  // getUser
   public async getUser(): Promise<Member[]> {
     const result = await this.memberModel
       .find({ memberType: MemberType.USER })
@@ -106,7 +106,7 @@ class MemberService {
     if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
     return result;
   }
-
+  // updateChosenUser
   public async updateChosenUser(input: MemberUpdateInput): Promise<Member> {
     input._id = shapeIntoMongooseObjectId(input._id);
     const result = await this.memberModel.findByIdAndUpdate(

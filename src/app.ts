@@ -36,8 +36,8 @@ app.use(
 );
 
 app.use(function (req, res, next) {
-  const sessionIntstance = req.session as T;
-  res.locals.member = sessionIntstance.member;
+  const sessionInstance = req.session as T;
+  res.locals.member = sessionInstance.member;
   next();
 });
 
@@ -46,6 +46,6 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 /** 4-Routers **/
-app.use("/admin", routerAdmin); // BSSR: EJS
+app.use("/admin", routerAdmin); // SSR: EJS
 app.use("/", router); // SPA: React => RestApi:
 export default app;
