@@ -164,7 +164,22 @@ Shunday function yozing, u string qabul qilsin va string palindrom yani togri oq
 MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
  */
 
-function palindromCheck(input: string): boolean {
-  return input.split("").reverse().join("") === input;
+// function palindromCheck(input: string): boolean {
+//   return input.split("").reverse().join("") === input;
+// }
+// console.log(palindromCheck("dad"));
+
+/**
+ O-TASK:
+
+Shunday function yozing, u har xil valuelardan iborat array qabul qilsin va array ichidagi sonlar yigindisini hisoblab chiqqan javobni qaytarsin.
+MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
+
+ */
+
+function calculateSumOfNumbers(list: unknown[]): number {
+  return list
+    .filter((item) => typeof item === "number")
+    .reduce((acc, curVal) => acc + curVal, 0);
 }
-console.log(palindromCheck("dad"));
+console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
