@@ -177,9 +177,18 @@ MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]) return 45
 
  */
 
-function calculateSumOfNumbers(list: unknown[]): number {
-  return list
-    .filter((item) => typeof item === "number")
-    .reduce((acc, curVal) => acc + curVal, 0);
-}
-console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+// function calculateSumOfNumbers(list: unknown[]): number {
+//   return list
+//     .filter((item) => typeof item === "number")
+//     .reduce((acc, curVal) => acc + curVal, 0);
+// }
+// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+
+/*
+P-TASK:
+
+Shunday function yozing, u object qabul qilsin va arrayni object arrayga otkazib arrayni qaytarsin qaytarsin.
+MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]] 
+*/
+const objectToArray = (obj: {}): unknown[] => Object.entries(obj);
+console.log(objectToArray({ a: 10, b: 20 }));
