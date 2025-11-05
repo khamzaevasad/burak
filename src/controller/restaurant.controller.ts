@@ -114,8 +114,8 @@ restaurantController.logout = async (req: AdminRequest, res: Response) => {
 restaurantController.getUser = async (req: Request, res: Response) => {
   try {
     const result = await memberService.getUser();
-    console.log(result);
-    res.render("users", { data: result });
+
+    res.render("users", { users: result });
   } catch (err) {
     console.log("Error getUser", err);
     res.redirect("/admin/login");
