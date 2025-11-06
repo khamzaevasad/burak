@@ -29,7 +29,7 @@ $(function () {
       });
       console.log("response", response);
       const result = response.data;
-      if (result) {
+      if (result.data) {
         $(".new-product-status").blur();
       } else alert("Product update failed");
     } catch (err) {
