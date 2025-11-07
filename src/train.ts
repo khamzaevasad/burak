@@ -198,7 +198,19 @@ Shunday function yozing, u 2 ta parametrgga ega bolib birinchisi object, ikkinch
 MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProperty({name: "BMW", model: "M3"}, "year") return false
 */
 
-function hasProperty(obj: Record<string, any>, key: string): boolean {
-  return obj.hasOwnProperty(key);
+// function hasProperty(obj: Record<string, any>, key: string): boolean {
+//   return obj.hasOwnProperty(key);
+// }
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+
+/**
+ R-TASK:
+
+Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
+MASALAN: calculate("1+3") return 4; */
+
+function calculate(str: string): number {
+  return eval(str);
 }
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+
+console.log(calculate("1+3"));
