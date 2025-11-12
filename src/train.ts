@@ -209,8 +209,24 @@ MASALAN: hasProperty({name: "BMW", model: "M3"}, "model") return true; hasProper
 Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
 MASALAN: calculate("1+3") return 4; */
 
-function calculate(str: string): number {
-  return eval(str);
+// function calculate(str: string): number {
+//   return eval(str);
+// }
+
+// console.log(calculate("1+3"));
+
+/**
+ S-TASK:
+
+Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
+MASALAN: missingNumber([3, 0, 1]) return 2
+
+ */
+
+function missingNumber(list: number[]): number {
+  const n = list.length;
+  const expectedSum = (n * (n + 1)) / 2;
+  return expectedSum - list.reduce((acc, curVal) => acc + curVal, 0);
 }
 
-console.log(calculate("1+3"));
+console.log(missingNumber([3, 0, 1]));
