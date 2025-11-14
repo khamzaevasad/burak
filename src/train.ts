@@ -223,10 +223,22 @@ MASALAN: missingNumber([3, 0, 1]) return 2
 
  */
 
-function missingNumber(list: number[]): number {
-  const n = list.length;
-  const expectedSum = (n * (n + 1)) / 2;
-  return expectedSum - list.reduce((acc, curVal) => acc + curVal, 0);
+// function missingNumber(list: number[]): number {
+//   const n = list.length;
+//   const expectedSum = (n * (n + 1)) / 2;
+//   return expectedSum - list.reduce((acc, curVal) => acc + curVal, 0);
+// }
+
+// console.log(missingNumber([3, 0, 1]));
+
+/**T-TASK:
+
+Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
+MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
+ */
+
+function mergeSortedArrays(list1: number[], list2: number[]) {
+  return list1.concat(list2).sort((a, b) => a + b);
 }
 
-console.log(missingNumber([3, 0, 1]));
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
