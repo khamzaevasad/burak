@@ -237,8 +237,22 @@ Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va i
 MASALAN: mergeSortedArrays([0,3,4,31], [4,6,30]); return [0,3,4,4,6,30,31]
  */
 
-function mergeSortedArrays(list1: number[], list2: number[]) {
-  return list1.concat(list2).sort((a, b) => a + b);
-}
+// function mergeSortedArrays(list1: number[], list2: number[]) {
+//   return list1.concat(list2).sort((a, b) => a + b);
+// }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+
+/**TASK U
+
+Shunday function tuzing, uni number parametri bo'lsin.
+Va bu function berilgan parametrgacha, 0'dan boshlab
+oraliqda nechta toq sonlar borligini aniqlab return qilsi.
+
+MASALAN: sumOdds(9) return 4; sumOdds(11) return 5; */
+
+function sumOdds(num: number): number {
+  return Math.floor(num / 2);
+}
+console.log(sumOdds(9));
+console.log(sumOdds(11));
