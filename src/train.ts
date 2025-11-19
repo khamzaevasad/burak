@@ -251,8 +251,24 @@ oraliqda nechta toq sonlar borligini aniqlab return qilsi.
 
 MASALAN: sumOdds(9) return 4; sumOdds(11) return 5; */
 
-function sumOdds(num: number): number {
-  return Math.floor(num / 2);
+// function sumOdds(num: number): number {
+//   return Math.floor(num / 2);
+// }
+// console.log(sumOdds(9));
+// console.log(sumOdds(11));
+
+/**V-TASK:
+
+Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
+MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+ */
+
+function countChars(value: string) {
+  return value.split("").reduce<Record<string, number>>((acc, curVal) => {
+    if (!acc[curVal]) acc[curVal] = 1;
+    else acc[curVal] += 1;
+    return acc;
+  }, {});
 }
-console.log(sumOdds(9));
-console.log(sumOdds(11));
+console.log(countChars("hello"));
