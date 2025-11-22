@@ -18,6 +18,7 @@ class MemberService {
 
   /** SPA **/
 
+  // memberSignup
   public async signup(input: MemberInput): Promise<Member> {
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
@@ -32,6 +33,7 @@ class MemberService {
     }
   }
 
+  // memberLogin
   public async login(input: LoginInput): Promise<Member> {
     // TODO: Consider member status later
     const member = await this.memberModel
@@ -60,6 +62,7 @@ class MemberService {
   }
 
   /** SSR **/
+
   // processSignup
   public async processSignup(input: MemberInput): Promise<Member> {
     const exist = await this.memberModel
