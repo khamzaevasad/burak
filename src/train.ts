@@ -264,11 +264,23 @@ MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
 
  */
 
-function countChars(value: string) {
-  return value.split("").reduce<Record<string, number>>((acc, curVal) => {
-    if (!acc[curVal]) acc[curVal] = 1;
-    else acc[curVal] += 1;
-    return acc;
-  }, {});
+// function countChars(value: string) {
+//   return value.split("").reduce<Record<string, number>>((acc, curVal) => {
+//     if (!acc[curVal]) acc[curVal] = 1;
+//     else acc[curVal] += 1;
+//     return acc;
+//   }, {});
+// }
+// console.log(countChars("hello"));
+
+/**W-TASK:
+
+Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
+MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
+ */
+
+let _ = require("lodash");
+function chunkArray(list: number[], number: number) {
+  return _.chunk(list, number);
 }
-console.log(countChars("hello"));
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));

@@ -62,7 +62,6 @@ class MemberService {
   }
 
   // getMemberDetail
-
   public async getMemberDetail(member: Member): Promise<Member> {
     const memberId = shapeIntoMongooseObjectId(member._id);
     const result = await this.memberModel
