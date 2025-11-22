@@ -279,8 +279,10 @@ Shunday function yozing, uni array va number parametrlari bolsin. Function array
 MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
  */
 
-let _ = require("lodash");
-function chunkArray(list: number[], number: number) {
-  return _.chunk(list, number);
+function chunkArray(list: number[], size: number) {
+  return list.reduce((acc: number[][], _, index) => {
+    if (index % size === 0) acc.push(list.slice(index, index + size));
+    return acc;
+  }, []);
 }
 console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
