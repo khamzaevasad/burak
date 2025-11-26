@@ -1,8 +1,14 @@
-import { Product, ProductUpdateInput } from "./../libs/types/products";
+import {
+  Product,
+  ProductInquiry,
+  ProductUpdateInput,
+} from "./../libs/types/products";
 import { ProductInput } from "../libs/types/products";
 import ProductModel from "../schema/Product.model";
 import Errors, { Message, HttpCode } from "../libs/Errors";
 import { shapeIntoMongooseObjectId } from "../libs/config";
+import { T } from "../libs/types/common";
+import { ProductCollection, ProductStatus } from "../libs/enums/product.enum";
 
 class ProductService {
   private readonly productModel;
@@ -10,8 +16,37 @@ class ProductService {
   constructor() {
     this.productModel = ProductModel;
   }
-  // ssr
 
+  // spa
+  public getProducts = async (inquiry: ProductInquiry): Promise<Product[]> => {
+    const match: T = { productStatus: ProductStatus.PAUSE };
+
+    if (inquiry.productCollection)
+      match.productCollection = inquiry.productCollection;
+    if (inquiry.search)
+      match.productName = { $regex: new RegExp(inquiry.search, "i") };
+
+    const sort: T =
+      inquiry.order === "productPrice"
+        ? { [inquiry.order]: 1 }
+        : { [inquiry.order]: -1 };
+
+    const result = await this.productModel
+      .aggregate([
+        { $match: match },
+        { $sort: sort },
+        { $skip: (inquiry.page * 1 - 1) * inquiry.limit }, //3
+        { $limit: inquiry.limit * 1 }, //3
+      ])
+      .exec();
+
+    if (!result.length)
+      throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result;
+  };
+
+  // ssr
   // getAllProducts
   public getAllProducts = async (): Promise<Product[]> => {
     const result = await this.productModel.find().exec();
@@ -42,6 +77,5 @@ class ProductService {
     return result;
   };
 }
-// spa
 
 export default ProductService;

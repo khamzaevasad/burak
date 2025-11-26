@@ -1,5 +1,6 @@
 import express from "express";
 import membersController from "./controller/member.controller";
+import productController from "./controller/product.controller";
 const router = express.Router();
 
 /** Member **/
@@ -20,6 +21,7 @@ router.get(
 router.get("/member/top-users", membersController.getTopUsers);
 
 /** Product **/
+router.get("/product/all/", productController.getProducts);
 
 /** Order **/
 
