@@ -279,10 +279,45 @@ Shunday function yozing, uni array va number parametrlari bolsin. Function array
 MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
  */
 
-function chunkArray(list: number[], size: number) {
-  return list.reduce((acc: number[][], _, index) => {
-    if (index % size === 0) acc.push(list.slice(index, index + size));
-    return acc;
-  }, []);
+// function chunkArray(list: number[], size: number) {
+//   return list.reduce((acc: number[][], _, index) => {
+//     if (index % size === 0) acc.push(list.slice(index, index + size));
+//     return acc;
+//   }, []);
+// }
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+
+/**X-TASK:
+
+ Shunday function yozing, uni object va string parapetrlari bolsin. Function string parametri object ichida necha marotaba takrorlanganligini qaytarsin (nested object bolsa ham sanasin)
+ MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+ */
+
+function countOccurrences(obj: Record<string, any>, key: string): number {
+  let count = 0;
+
+  function recurse(current: any) {
+    if (current && typeof current === "object") {
+      for (const k in current) {
+        if (k === key) count++;
+
+        const value = current[k];
+        if (typeof value === "object") {
+          recurse(value);
+        }
+      }
+    }
+  }
+
+  recurse(obj);
+  return count;
 }
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+const data = {
+  model: "Bugatti",
+  steer: {
+    model: "HANKOOK",
+    size: 30,
+  },
+};
+
+console.log(countOccurrences(data, "model")); // 2
