@@ -84,6 +84,19 @@ membersController.getMemberDetail = async (
   }
 };
 
+// getTopUsers
+membersController.getTopUsers = async (req: Request, res: Response) => {
+  try {
+    console.log("getTopUsers");
+    const result = await memberService.getTopUsers();
+    res.status(HttpCode.OK).json(result);
+  } catch (err) {
+    console.log("ERROR getMemberDetail", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standard.code).json(Errors.standard);
+  }
+};
+
 // Verify Auth
 membersController.verifyAuth = async (
   req: ExtendedRequest,

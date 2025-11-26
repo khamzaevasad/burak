@@ -16,6 +16,8 @@ router.get(
   membersController.getMemberDetail
 );
 
+router.get("/member/top-users", membersController.getTopUsers);
+
 /** Product **/
 
 /** Order **/
