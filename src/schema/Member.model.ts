@@ -52,4 +52,4 @@ const MemberScheme = new Schema(
   { timestamps: true } // createAt, updateAt
 );
 
-export default mongoose.model("members", MemberScheme);
+export default mongoose.model("Member", MemberScheme);
