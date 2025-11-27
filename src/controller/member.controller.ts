@@ -150,8 +150,6 @@ membersController.verifyAuth = async (
   }
 };
 
-// logger
-
 // retrieve Auth
 membersController.retrieveAuth = async (
   req: ExtendedRequest,
