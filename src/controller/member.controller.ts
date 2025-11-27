@@ -163,8 +163,6 @@ membersController.retrieveAuth = async (
     next();
   } catch (err) {
     console.log("ERROR verifyAuth", err);
-    if (err instanceof Errors) res.status(err.code).json(err);
-    else res.status(Errors.standard.code).json(Errors.standard);
     next();
   }
 };
