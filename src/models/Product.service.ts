@@ -1,3 +1,4 @@
+import { ObjectId } from "mongoose";
 import {
   Product,
   ProductInquiry,
@@ -8,7 +9,7 @@ import ProductModel from "../schema/Product.model";
 import Errors, { Message, HttpCode } from "../libs/Errors";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import { T } from "../libs/types/common";
-import { ProductCollection, ProductStatus } from "../libs/enums/product.enum";
+import { ProductStatus } from "../libs/enums/product.enum";
 
 class ProductService {
   private readonly productModel;
@@ -18,6 +19,7 @@ class ProductService {
   }
 
   // spa
+  // getProducts
   public getProducts = async (inquiry: ProductInquiry): Promise<Product[]> => {
     const match: T = { productStatus: ProductStatus.PAUSE };
 
@@ -42,6 +44,25 @@ class ProductService {
 
     if (!result.length)
       throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result;
+  };
+
+  // getProduct
+  public getProduct = async (
+    memberId: ObjectId | null,
+    id: string
+  ): Promise<Product> => {
+    const productId = shapeIntoMongooseObjectId(id);
+
+    let result = await this.productModel
+      .findOne({
+        _id: productId,
+        productStatus: ProductStatus.PAUSE,
+      })
+      .exec();
+
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
     return result;
   };
