@@ -328,7 +328,22 @@ MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9]
  MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
  */
 
-function findIntersection(list1: number[], list2: number[]) {
-  return list1.filter((item) => list2.includes(item));
+// function findIntersection(list1: number[], list2: number[]) {
+//   return list1.filter((item) => list2.includes(item));
+// }
+// console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+
+/**Z-TASK:
+
+Shunday function yozing, uni sonlardan tashkil topgan array qabul qilsin. Function arraydagi juft sonlarni yigindisini qaytarsin
+MASALAN: sumEvens([1,2,3]) return 2
+
+ */
+
+function sumEvens(list: number[]): number {
+  return list
+    .filter((item) => item % 2 === 0)
+    .reduce((acc, curVal) => acc + curVal, 0);
 }
-console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+
+console.log(sumEvens([1, 2, 3, 4]));
