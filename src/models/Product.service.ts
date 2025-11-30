@@ -98,6 +98,31 @@ class ProductService {
     return result;
   };
 
+  // findProduct
+  public findProduct = async (productId: ObjectId): Promise<Product> => {
+    const product = await this.productModel.findById(productId).exec();
+
+    if (!product) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    return product;
+  };
+
+  // updateCount
+  public updateCount = async (
+    productId: ObjectId,
+    newCount: number
+  ): Promise<Product> => {
+    const updated = await this.productModel
+      .findOneAndUpdate(
+        { _id: productId },
+        { productLeftCount: newCount },
+        { new: true }
+      )
+      .exec();
+
+    if (!updated) throw new Errors(HttpCode.BAD_REQUEST, Message.UPDATE_FAILED);
+    return updated;
+  };
+
   // ssr
   // getAllProducts
   public getAllProducts = async (): Promise<Product[]> => {
