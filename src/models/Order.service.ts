@@ -18,13 +18,13 @@ class OrderService {
   private readonly orderModel;
   private readonly orderItemModel;
   private readonly memberService;
-  private readonly productService;
+  // private readonly productService;
 
   constructor() {
     this.orderModel = OrderModel;
     this.orderItemModel = OrderItemModel;
     this.memberService = new MemberService();
-    this.productService = new ProductService();
+    // this.productService = new ProductService();
   }
   // createOrder
   public async createOrder(
@@ -58,15 +58,15 @@ class OrderService {
     input: OrderItemInput[]
   ): Promise<void> {
     const promisedList = input.map(async (item: OrderItemInput) => {
-      const product = await this.productService.findProduct(item.productId);
+      // const product = await this.productService.findProduct(item.productId);
 
-      if (item.itemQuantity > product.productLeftCount) {
-        throw new Error("Not enough stock");
-      }
+      // if (item.itemQuantity > product.productLeftCount) {
+      //   throw new Error("Not enough stock");
+      // }
 
-      const newCount = product.productLeftCount - item.itemQuantity;
+      // const newCount = product.productLeftCount - item.itemQuantity;
 
-      await this.productService.updateCount(item.productId, newCount);
+      // await this.productService.updateCount(item.productId, newCount);
 
       item.orderId = orderId;
       item.productId = shapeIntoMongooseObjectId(item.productId);
