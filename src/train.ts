@@ -383,13 +383,22 @@ Shunday function yozing, uni number, array va number parametrlari bolsin va beri
 MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
  */
 
-function changeNumberInArrayByIndex(
-  index: number,
-  arr: number[],
-  newValue: number
-): number[] {
-  if (index >= 0 && index < arr.length) {
-    arr[index] = newValue;
-  }
-  return arr;
+// function changeNumberInArrayByIndex(
+//   index: number,
+//   arr: number[],
+//   newValue: number
+// ): number[] {
+//   if (index >= 0 && index < arr.length) {
+//     arr[index] = newValue;
+//   }
+//   return arr;
+// }
+
+/**Shunday function yozing, uni  string parametri bolsin. String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
+MASALAN: removeDuplicate('stringg') return 'string'
+ */
+
+function removeDuplicate(value: string) {
+  return Array.from(new Set(value)).join("");
 }
+console.log(removeDuplicate("stringg"));
