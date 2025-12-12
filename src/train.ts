@@ -398,7 +398,25 @@ MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
 MASALAN: removeDuplicate('stringg') return 'string'
  */
 
-function removeDuplicate(value: string) {
-  return Array.from(new Set(value)).join("");
+// function removeDuplicate(value: string) {
+//   return Array.from(new Set(value)).join("");
+// }
+// console.log(removeDuplicate("stringg"));
+
+/**ZF-TASK:
+
+Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
+MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+ */
+
+function capitalizeWords(word: string) {
+  return word
+    .split(" ")
+    .map((item) =>
+      item.length <= 2
+        ? item
+        : item[0].toUpperCase() + item.slice(1).toLocaleLowerCase()
+    )
+    .join(" ");
 }
-console.log(removeDuplicate("stringg"));
+console.log(capitalizeWords("name should be a string"));
