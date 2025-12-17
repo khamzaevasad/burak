@@ -409,14 +409,24 @@ Shunday function yozing, uni string parametri bolsin. String ichidagi har bir so
 MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
  */
 
+// function capitalizeWords(word: string) {
+//   return word
+//     .split(" ")
+//     .map((item) =>
+//       item.length <= 2
+//         ? item
+//         : item[0].toUpperCase() + item.slice(1).toLocaleLowerCase()
+//     )
+//     .join("_");
+// }
+// console.log(capitalizeWords("name should be a string"));
+
+/**ZG-TASK:
+
+Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
+MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string' */
+
 function capitalizeWords(word: string) {
-  return word
-    .split(" ")
-    .map((item) =>
-      item.length <= 2
-        ? item
-        : item[0].toUpperCase() + item.slice(1).toLocaleLowerCase()
-    )
-    .join(" ");
+  return word.split(" ").join("_");
 }
 console.log(capitalizeWords("name should be a string"));
