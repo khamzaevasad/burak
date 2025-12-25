@@ -461,14 +461,25 @@ Shundan function yozing, bu function 3 soniydan so'ng
 
 MASALAN: delayHelloWorld("Hello World"); return "Hello World"; */
 
-function delayHelloWorld() {
-  return new Promise((resolve) =>
-    setTimeout(() => resolve("Hello world"), 3000)
-  );
-}
+// function delayHelloWorld() {
+//   return new Promise((resolve) =>
+//     setTimeout(() => resolve("Hello world"), 3000)
+//   );
+// }
 
-const run = async () => {
-  const result = await delayHelloWorld();
-  console.log(result);
-};
-run();
+// const run = async () => {
+//   const result = await delayHelloWorld();
+//   console.log(result);
+// };
+// run();
+
+/**TASK ZJ:
+
+Shunday function yozing, u berilgan array ichidagi
+raqamlarni qiymatini hisoblab qaytarsin.
+
+MASALAN: reduceNestedArray([1, [1, 2, [4]]]); return 8; */
+function reduceNestedArray(list: any[]): number {
+  return list.flat(Infinity).reduce((acc, cur) => acc + cur, 0);
+}
+console.log(reduceNestedArray([1, [1, 2, [4]]]));
