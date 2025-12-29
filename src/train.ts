@@ -479,7 +479,28 @@ Shunday function yozing, u berilgan array ichidagi
 raqamlarni qiymatini hisoblab qaytarsin.
 
 MASALAN: reduceNestedArray([1, [1, 2, [4]]]); return 8; */
-function reduceNestedArray(list: any[]): number {
-  return list.flat(Infinity).reduce((acc, cur) => acc + cur, 0);
+// function reduceNestedArray(list: any[]): number {
+//   return list.flat(Infinity).reduce((acc, cur) => acc + cur, 0);
+// }
+// console.log(reduceNestedArray([1, [1, 2, [4]]]));
+
+/**ZK-TASK:
+
+Shunday function yozing, u har soniyada bir marta consolega 1 dan 5 gacha bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini toxtatsin.
+MASALAN: printNumbers() */
+
+function printNumbers(): void {
+  let count: number = 1;
+
+  const intervalId = setInterval((): void => {
+    console.log(count);
+
+    if (count === 5) {
+      clearInterval(intervalId);
+    }
+
+    count++;
+  }, 1000);
 }
-console.log(reduceNestedArray([1, [1, 2, [4]]]));
+
+printNumbers();
