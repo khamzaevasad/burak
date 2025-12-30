@@ -489,18 +489,29 @@ MASALAN: reduceNestedArray([1, [1, 2, [4]]]); return 8; */
 Shunday function yozing, u har soniyada bir marta consolega 1 dan 5 gacha bolgan raqamlarni chop etsin va 5 soniyadan keyin ishini toxtatsin.
 MASALAN: printNumbers() */
 
-function printNumbers(): void {
-  let count: number = 1;
+// function printNumbers(): void {
+//   let count: number = 1;
 
-  const intervalId = setInterval((): void => {
-    console.log(count);
+//   const intervalId = setInterval((): void => {
+//     console.log(count);
 
-    if (count === 5) {
-      clearInterval(intervalId);
-    }
+//     if (count === 5) {
+//       clearInterval(intervalId);
+//     }
 
-    count++;
-  }, 1000);
+//     count++;
+//   }, 1000);
+// }
+
+// printNumbers();
+
+/**ZL-TASK:
+
+Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
+MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+ */
+
+function stringToKebab(input: string) {
+  return input.split(" ").join("-").toLocaleLowerCase();
 }
-
-printNumbers();
+console.log(stringToKebab("I love Kebab"));
