@@ -511,7 +511,21 @@ Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qay
 MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
  */
 
-function stringToKebab(input: string) {
-  return input.split(" ").join("-").toLocaleLowerCase();
+// function stringToKebab(input: string) {
+//   return input.split(" ").join("-").toLocaleLowerCase();
+// }
+// console.log(stringToKebab("I love Kebab"));
+
+/**ZM-TASK
+
+Shunday function yozing, u function parametrda berilgan sonni har bir raqamini kvadratiga ogirib qaytarsin. MASALAN: squareDigits(9119) return "811181".
+ */
+
+function squareDigits(input: number) {
+  return input
+    .toString()
+    .split("")
+    .map((item) => Number(item) * Number(item))
+    .join("");
 }
-console.log(stringToKebab("I love Kebab"));
+console.log(squareDigits(9119));
