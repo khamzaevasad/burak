@@ -521,11 +521,14 @@ MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
 Shunday function yozing, u function parametrda berilgan sonni har bir raqamini kvadratiga ogirib qaytarsin. MASALAN: squareDigits(9119) return "811181".
  */
 
-function squareDigits(input: number) {
-  return input
-    .toString()
-    .split("")
-    .map((item) => Number(item) * Number(item))
-    .join("");
+/**ZN-TASK Shunday function yozing, uni array va number parametri bolsin. Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin. MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 2) return [5, 6, 1, 2, 3, 4]. */
+function rotateArray(list: number[], target: number) {
+  const k = target % list.length;
+
+  if (k === 0) return list;
+  const part1 = list.slice(list.length - k);
+  const part2 = list.slice(0, list.length - k);
+
+  return part1.concat(part2);
 }
-console.log(squareDigits(9119));
+console.log(rotateArray([1, 2, 3, 4, 5, 6], 2));
